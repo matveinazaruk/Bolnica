@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "DoctorRequest";
+}
+
+<h2>Вызов врача на дом</h2>
+
+
+<div class="col-md-8 col-md-offset-2">
+    <form role="form" action="~/Home/DoctorRequestResult" method="post">
+        <div class="form-group">
+            <label for="phone">Номер телефона</label>
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Введите контактный телефон" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Ваш домашний адрес</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Адрес" required>
+        </div>
+        <div class="form-group">
+            <label for="fio">ФИО</label>
+            <input type="text" class="form-control" id="fio" placeholder="ФИО" required>
+        </div>
+        <div class="form-group">            
+            <label for="text">Жалобы</label>
+            <textarea class="form-control" id="text" name="text" rows="7" placeholder="Пишите здесь" style="resize:none; width:560px" required></textarea>
+        </div>    
+        <input type="submit" class="btn btn-default" value="Послать запрос на вызов">
+    </form>
+</div>

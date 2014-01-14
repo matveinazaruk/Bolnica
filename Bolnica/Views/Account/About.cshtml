@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<article>
+    <p>
+        Информация о больнице 1.
+    </p>
+
+    <p>
+        Информация о больнице 2.
+    </p>
+
+    <p>
+        Информация о больнице 3.
+    </p>
+</article>
+
+<aside>
+    <h3>Контакты: </h3>
+    <p>
+        тел./факс 8 (01513) 33557
+        e-mail: svis@tut.by
+    </p>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+</aside>

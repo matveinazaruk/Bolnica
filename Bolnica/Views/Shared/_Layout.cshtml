@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>     
+        <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+        <link href="~/Content/fotorama.css" rel="stylesheet">
+        <script src="~/Scripts/fotorama.js"></script>
+        <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="~/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+        <link href="~/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title — приложение ASP.NET MVC</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @*@Styles.Render("~/Content/css")*@
+        @Styles.Render("~/bootstrap/css")        
+        @Scripts.Render("~/bundles/modernizr")
+        <style type="text/css">
+           
+           .styleMenu {
+               text-align:center;
+               font-size:18px;
+               font-family: Calibri;
+           }
+            .styleBG {
+                background-image:url(/Images/operabgall.png);
+            }
+            footer {
+                bottom: 1px;
+                height: 40px;
+                width: 100%;
+                margin: 0 auto;
+                text-align: center;
+                background: #eee;
+                z-index: 100;
+            }
+        </style>
+    </head>
+    <body class="styleBG" >       
+        <div class="container">   
+
+            <div>   
+                <div class="container">
+                    <div class="col-md-3">
+                        <a href="~/Home/Index">
+                        <img src="~/Images/logo.gif" ></a>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            <strong>Cвислочская центральная районная больница</strong><br />
+                            231960<br/>
+                            г.Свислочь, ул.17 Сентября, 3<br />
+                            <strong>Тел </strong>8-01513-33557<br />
+                            <strong>Email </strong>svis@tut.by
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-ourStyle" role="navigation">
+                    <ul class="nav navbar-nav styleMenu">
+                        <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">О больнице <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Администрация", "Index", "Doctor")</li>                                                           
+                                <li>@Html.ActionLink("Подразделения", "Index", "Subdivision")</li>
+                                <li>@Html.ActionLink("Вакансии", "Index", "Job")</li>
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Услуги","Services","Home")</li>
+                        <li>@Html.ActionLink("График приема","Schedule","Home")</li>
+                        <li>@Html.ActionLink("Новости", "Index", "Article")</li>
+                        <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>  
+                    </ul>                 
+            </nav>
+        
+        <div class="row">
+            <div class="col-md-2">     
+                <div class="thumbnail">
+                     <h4><center>Запрос на талон к врачу</center></h4>                                               
+                    <img src="~/Images/doctrecieve.png" alt="...">
+                    <div class="caption">
+                        <p><center>
+                            <a href="~/Home/TicketRequest" class="btn btn-primary" role="button">
+                                <span class="glyphicon glyphicon-file"></span>
+                                Запросить
+                            </a> 
+                        </center>
+                        </p>
+                    </div>
+                </div>      
+                <div class="thumbnail">
+                     <h4><center>Обратная связь</center></h4>                                               
+                    <img src="~/Images/callback.jpg" alt="...">
+                    <div class="caption">
+                        <p><center>
+                            <a href="~/Home/CallBack" class="btn btn-primary" role="button">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                Написать
+                            </a> </center>
+                        </p>
+                    </div>
+                </div>
+                             
+                <div class="thumbnail">
+                     <h4><center>Вызвать врача</center></h4>                                               
+                    <img src="~/Images/doctorcall.jpeg" alt="...">
+                    <div class="caption">
+                        <p><center>
+                            <a href="~/Home/DoctorRequest" class="btn btn-primary" role="button">
+                                <span class="glyphicon glyphicon-send"></span>
+                                Запросить
+                            </a> 
+                        </center>
+                        </p>
+                    </div>
+                </div>                
+            </div>
+            <div class="col-md-8">
+
+                <div >
+                    <section >
+                        @RenderBody()
+                    </section>
+                </div>
+        
+            </div>   
+            <div class="col-md-2">
+                <div class="thumbnail">
+                     <h4><center>Международный день семьи</center></h4>                                               
+                    <img src="~/Images/Articles/mezhddensem.jpg" alt="...">
+                    <div class="caption"><center>
+                        <p>
+                            <a href="~/Article/Article/4" class="btn btn-primary" role="button">Подробнее</a> 
+                        </p>
+                    </center></div>
+                </div>
+                <div class="thumbnail">                    
+                    <h4><center>Всемирный день борьбы против бешенства</center></h4>   
+                    <img src="~/Images/Articles/beshenstvo.jpg" alt="...">
+                    <div class="caption"> <center>
+                        <p>
+                            <a href="~/Article/Article/2" class="btn btn-primary" role="button">Подробнее</a> 
+                        </p>
+                    </center></div>
+                </div>
+                <div class="thumbnail">
+                     <h4><center>Единый день здоровья «День профилактики алкоголизма»</center></h4>                                               
+                    <img src="~/Images/Articles/alcogolizm.jpg" alt="...">
+                    <div class="caption"><center>
+                        <p>
+                            <a href="~/Article/Article/3" class="btn btn-primary" role="button">Подробнее</a> 
+                        </p>
+                    </center></div>
+                </div>
+            </div>
+        </div>
+
+            </div>
+        <footer>
+                <p class="text-muted"> &copy; 2014 -Гродненская городская больница</p>
+        </footer>
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+        <script src="~/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

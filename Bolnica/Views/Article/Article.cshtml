@@ -1,0 +1,25 @@
+﻿@model Bolnica.Models.Article
+
+@{
+    ViewBag.Title = "Article";
+    HtmlString hs = new HtmlString(Model.Content);
+}
+
+ 
+<fieldset>
+    <div class="jumbotron">
+        @Model.Date.ToShortDateString() <h3>@Html.DisplayFor(model => model.Name)</h3>        
+    </div>
+
+    
+
+    <div class="well">       
+        <p>@hs</p>  
+    </div>
+</fieldset>
+<div>
+    <a type="button" class="btn btn-custom btn-lg" href="~/Article/Index">    
+        <span class="glyphicon glyphicon-backward"></span> К списку статей
+    </a>
+    <p></p>
+</div>

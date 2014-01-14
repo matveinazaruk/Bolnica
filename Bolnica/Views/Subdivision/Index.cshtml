@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Bolnica.Models.SubdivisionFullModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Название
+        </th>
+        <th>
+            Заведующий отделением
+        </th>
+        <th>
+            Телефон
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manager)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        
+    </tr>
+}
+
+</table>

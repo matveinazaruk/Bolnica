@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище DoctorInfoModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Хранилище DoctorInfoModelContainer">
+    <EntitySet Name="Articles" EntityType="Хранилище DoctorInfoModel.Articles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Doctors" EntityType="Хранилище DoctorInfoModel.Doctors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Jobs" EntityType="Хранилище DoctorInfoModel.Jobs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subdivisions" EntityType="Хранилище DoctorInfoModel.Subdivisions" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Subdivisi__Manag__239E4DCF" Association="Хранилище DoctorInfoModel.FK__Subdivisi__Manag__239E4DCF">
+      <End Role="Doctors" EntitySet="Doctors" />
+      <End Role="Subdivisions" EntitySet="Subdivisions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Articles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Content" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doctors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nchar" Nullable="false" MaxLength="40" />
+    <Property Name="PhoneNumber" Type="nchar" MaxLength="15" />
+    <Property Name="Post" Type="nchar" Nullable="false" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="Jobs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="HowMuch" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subdivisions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="ManagerId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Subdivisi__Manag__239E4DCF">
+    <End Role="Doctors" Type="Хранилище DoctorInfoModel.Doctors" Multiplicity="1" />
+    <End Role="Subdivisions" Type="Хранилище DoctorInfoModel.Subdivisions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subdivisions">
+        <PropertyRef Name="ManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

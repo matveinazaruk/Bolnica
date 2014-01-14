@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Bolnica.Models.Doctor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Администрация</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Имя
+        </th>
+        <th>
+            Телефон
+        </th>
+        <th>
+            Пост
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    if(item.Id < 7){
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post)
+        </td>        
+    </tr>
+}
+}
+
+</table>

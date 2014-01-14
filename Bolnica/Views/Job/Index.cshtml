@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Bolnica.Models.Job>
+
+@{
+    ViewBag.Title = "Вакансии";
+}
+
+<h2>Вакансии</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Имеющиеся вакансии:
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+    </tr>
+}
+
+</table>
+@if (User.IsInRole("Administrator")){
+<a href="~/Job/AdminView" class="btn btn-default" role="button">Редактировать вакансии</a>
+}

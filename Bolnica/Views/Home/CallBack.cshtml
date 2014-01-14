@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "CallBack";
+}
+
+<h2>Обратная связь</h2>
+
+<div class="col-md-8 col-md-offset-2">
+    <form role="form" action="~/Home/CallBackResult" method="post">
+        <div class="form-group">
+            <label for="email">Email адрес</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Введите контактный email" required>
+        </div>
+        <div class="form-group">
+            <label for="fio">ФИО</label>
+            <input type="text" class="form-control" id="fio" placeholder="ФИО" required>
+        </div>
+        <div class="form-group">            
+            <label for="text">Текст письма</label>
+            <textarea class="form-control" id="text" name="text" rows="7" placeholder="Пишите здесь" style="resize:none; width:560px" required></textarea>
+        </div>    
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <p>Соглашение 
+                    <a class="btn btn-default btn-xs show-button">                    
+                        <span class="glyphicon glyphicon-arrow-down"></span>читать
+                    </a>
+                </p>
+            </div>
+            <div class="panel-body hidden" id="hidden-text">
+                <p>Пожалуйтса, внимательно прочитайте эти правила перед отправкой письма!</p>
+                <ol>
+                    <li>Использую этот метод вы можете поблагодарить врачей за их помощь.</li>
+                    <li>Таким образом может быть оставлен отзыв, о работе нашей больницы.</li>
+                    <li>Нетерпимость не будет поощряться. Расизму, гомофобии, сексизму или любой другой форме нетерпимости нет места в нашей больнице.</li>
+                    <li>Вы не имете права выдавать себя за другого.</li>
+                    <li>Вы имете право выражать свое недовольство услугами, предоставляемыми нашей больницей.</li>
+                    <li>Жалобы, в которых содержится нецензурная брань или клевета рассматриваться не будут.</li>
+                    <li>Запрещается коверкание или изменение имен врачей нашей больницы.</li>
+                    <li>Запрещается не нормировать количество знаков препинания и смайликов.</li>
+                    <li>Данное соглашение вступает в силу в момент отправки вами письма. Вы несете административную ответственность, за любые нарушение, совершенные вами.</li>
+                </ol>
+            </div>
+        </div> 
+        <div class="checkbox" >
+            <label>
+                <input type="checkbox" required> Согласен
+            </label>             
+       </div>
+        <input type="submit" class="btn btn-default" value="Отправить">
+    </form>
+    <script src="~/Scripts/MyScripts.js"></script>
+</div>

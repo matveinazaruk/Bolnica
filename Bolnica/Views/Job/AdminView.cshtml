@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Bolnica.Models.Job>
+
+@{
+    ViewBag.Title = "Вакансии";
+}
+
+<h2>Вакансии</h2>
+
+<p>
+    @Html.ActionLink("Cоздать вакансию", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Имеющиеся вакансии:
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Удалить", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

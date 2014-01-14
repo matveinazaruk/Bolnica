@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "CallBackResult";
+}
+
+<h2>Обратная связь</h2>
+@if (ViewBag.Result == "success"){
+    <div class="jumbotron">
+        <div class="alert alert-success">Спасибо! Ваше письмо успешно отправлено!</div>
+        <a class="btn btn-success" href="~/Home/Index">
+            <span class="glyphicon glyphicon-backward"></span>
+            Вернуться на главную
+        </a>
+    </div>
+}
+else { 
+    <div class="jumbotron">
+        <div class="alert alert-danger">Извините, но ваше письмо не достигло цели. Возможно, вы что-то сделали не так.</div>
+        <a class="btn btn-danger" href="~/Home/Index">
+            <span class="glyphicon glyphicon-backward"></span>Вернуться на главную</a>
+        <a class="btn btn-danger" href="~/Home/CallBack">
+            <span class="glyphicon glyphicon-repeat"></span>Попробовать еще!</a>
+    </div>
+}

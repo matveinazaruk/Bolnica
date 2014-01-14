@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Bolnica.Models.ShortArticle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@foreach (var item in Model) {
+    HtmlString hs = new HtmlString(item.ShortContent);
+    
+        <div>
+            
+            <div class="thumbnail">
+                <p>@hs</p>                
+                <p>
+                    <a class="btn btn-custom" href="~/Article/Article/@item.Id" role="button">
+                        Подробнее &raquo;
+                    </a>
+                </p>
+            </div>
+        </div>
+
+}
+

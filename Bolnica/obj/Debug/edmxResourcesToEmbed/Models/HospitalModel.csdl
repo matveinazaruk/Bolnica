@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DoctorInfoModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DoctorInfoEntities2" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Articles" EntityType="DoctorInfoModel.Article" />
+    <EntitySet Name="Doctors" EntityType="DoctorInfoModel.Doctor" />
+    <EntitySet Name="Jobs" EntityType="DoctorInfoModel.Job" />
+    <EntitySet Name="Subdivisions" EntityType="DoctorInfoModel.Subdivision" />
+    <AssociationSet Name="FK__Subdivisi__Manag__239E4DCF" Association="DoctorInfoModel.FK__Subdivisi__Manag__239E4DCF">
+      <End Role="Doctors" EntitySet="Doctors" />
+      <End Role="Subdivisions" EntitySet="Subdivisions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" Unicode="true" FixedLength="true" />
+    <Property Name="Post" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Subdivisions" Relationship="DoctorInfoModel.FK__Subdivisi__Manag__239E4DCF" FromRole="Doctors" ToRole="Subdivisions" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="true" />
+    <Property Name="HowMuch" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subdivision">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="true" />
+    <Property Name="ManagerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Doctor" Relationship="DoctorInfoModel.FK__Subdivisi__Manag__239E4DCF" FromRole="Subdivisions" ToRole="Doctors" />
+  </EntityType>
+  <Association Name="FK__Subdivisi__Manag__239E4DCF">
+    <End Role="Doctors" Type="DoctorInfoModel.Doctor" Multiplicity="1" />
+    <End Role="Subdivisions" Type="DoctorInfoModel.Subdivision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subdivisions">
+        <PropertyRef Name="ManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

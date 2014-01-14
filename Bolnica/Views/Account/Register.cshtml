@@ -1,0 +1,59 @@
+﻿@model Bolnica.Models.RegisterModel
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+<div class="page-header">
+    <h1>@ViewBag.Title</h1>
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h2>Создание новой учетной записи.</h2></div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-2">
+                            <div class="label label-default">
+                               Имя пользователя              
+                            </div> <p></p>
+                            <div class="label label-default">
+                                Пароль
+                            </div><p></p>
+                            <div class="label label-default">
+                                Повторите пароль
+                            </div><p></p>
+                    </div>
+                    <div class="col-md-6">   
+                        <div class="input-group">         
+                        @Html.TextBoxFor(m => m.UserName)  
+
+                        </div>        
+                        <div class="input-group">    
+                        @Html.PasswordFor(m => m.Password)
+                        </div>        
+                        <div class="input-group">    
+                        @Html.PasswordFor(m => m.ConfirmPassword)
+                        </div>        
+                    </div>
+            
+                    <div class="col-md-2">  
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-4">
+                        <input class="btn btn-primary" type="submit" value="Регистрация" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
